@@ -20,7 +20,7 @@ Siga os passos abaixo para configurar e executar o projeto em sua máquina:
 
 Clone este repositório para sua máquina local usando o Git:
 ```
-git clone https://github.com/seu-usuario/seu-projeto.git
+git clone https://github.com/becastellani/crudLaravelTailwind.git
 ```
 
 Navegue até o diretório do projeto:
