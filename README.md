@@ -33,6 +33,11 @@ Instale as dependências PHP com o Composer:
 composer install
 ```
 
+Instale as dependências do Node.js:
+```
+npm install
+```
+
 Gere uma chave de aplicativo Laravel:
 ```
 php artisan key:generate
@@ -52,11 +57,6 @@ php artisan permission:create-permission user
 Inicie o servidor de desenvolvimento:
 ```
 php artisan serve
-```
-
-Instale as dependências do Node.js:
-```
-npm install
 ```
 
 Inicie os assets do Tailwind 
