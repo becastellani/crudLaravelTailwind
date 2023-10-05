@@ -43,6 +43,12 @@ Execute as migrações do banco de dados para criar as tabelas necessárias:
 php artisan migrate
 ```
 
+Crie as permissões de user e admin
+```
+php artisan permission:create-permission admin
+php artisan permission:create-permission user
+```
+
 Inicie o servidor de desenvolvimento:
 ```
 php artisan serve
@@ -51,12 +57,6 @@ php artisan serve
 Instale as dependências do Node.js:
 ```
 npm install
-```
-
-Instale o Tailwind
-```
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
 ```
 
 Inicie os assets do Tailwind 
