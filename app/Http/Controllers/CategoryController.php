@@ -16,13 +16,43 @@ class CategoryController extends Controller
     
     public function store(Request $request)
     {
-        // Validação dos dados e salvamento da categoria
         $validatedData = $request->validate([
             'nome' => 'required|unique:categorias|max:255',
         ]);
 
         Categoria::create($validatedData);
 
-        return redirect()->route('cadastro')->with('success', 'Categoria criada com sucesso!');
+        return redirect()->route('cadastro-categoria')->with('success', 'Categoria criada com sucesso!');
     }
+
+    public function index()
+    {
+        $categories = Categoria::all();
+        return view('categories.index', compact('categories'));
+    }
+
+
+    public function destroy(Categoria $category)
+    {
+        $category->delete();
+    
+        return redirect()->route('visualizar')->with('success', 'Produto excluído com sucesso.');
+    }
+    
+    public function edit(Categoria $category)
+    {
+        return view('categories.edit', compact('category'));
+    }
+    
+    public function update(Request $request, Categoria $category)
+    {
+        $validatedData = $request->validate([
+            'nome' => 'required|max:255',
+        ]);
+    
+        $category->update($validatedData);
+    
+        return redirect()->route('categoria-visualizar')->with('success', 'Produto atualizado com sucesso.');
+    }
+    
 }

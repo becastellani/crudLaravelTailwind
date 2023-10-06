@@ -22,10 +22,20 @@
                         {{ __('Cadastrar Novos Produtos') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('cadastro-categoria')" :active="request()->routeIs('cadastro-categoria')">
+                        {{ __('Cadastrar Novas Categorias') }}
+                    </x-nav-link>
+                </div>
                 @endcan
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('visualizar')" :active="request()->routeIs('visualizar')">
                         {{ __('Visualizar os Produtos') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('categoria-visualizar')" :active="request()->routeIs('visualizar')">
+                        {{ __('Visualizar as Categorias') }}
                     </x-nav-link>
                 </div>
             </div>
