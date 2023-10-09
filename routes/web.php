@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChartController;
 use App\Models\Categoria;
 
 /*
@@ -19,9 +20,7 @@ use App\Models\Categoria;
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -49,6 +48,14 @@ Route::middleware(['auth', 'verified', 'can:admin'])->group(function () {
 
     Route::get('/produtos/visualizar', [ProductController::class, 'index'])->name('visualizar');
     Route::get('/categorias/visualizar', [CategoryController::class, 'index'])->name('categoria-visualizar');
+
+
+    Route::get('/dashboard', [ChartController::class, 'graficoPizza'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+
+
   
 
 
