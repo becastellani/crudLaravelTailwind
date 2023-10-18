@@ -54,6 +54,8 @@ Route::middleware(['auth', 'verified', 'can:admin'])->group(function () {
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+    
+
 
 
   

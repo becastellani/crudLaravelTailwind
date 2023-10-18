@@ -4,6 +4,10 @@
             {{ __('Visualizar Produtos') }}
         </h2>
     </x-slot>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -11,7 +15,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h3 class="text-xl font-semibold mb-4">Lista de Produtos</h3>
 
-                    <table class="min-w-full divide-y divide-gray-200">
+                    <table class="min-w-full divide-y divide-gray-200" id="product-table">
                         <thead class="bg-gray-100">
                             <tr>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-black-700 uppercase tracking-wider ">
@@ -82,4 +86,21 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $('#product-table').DataTable({
+                "order": [[0, "asc"]],
+                 
+            });
+        });
+
+        $(document).ready(function () {
+
+    var $dataTablesLength = $(".dataTables_length");
+
+    var $select = $dataTablesLength.find("select");
+    var novaLargura = "100px"; 
+    $select.css("width", novaLargura);
+});
+    </script>
 </x-app-layout>

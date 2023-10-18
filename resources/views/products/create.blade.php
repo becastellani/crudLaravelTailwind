@@ -17,25 +17,25 @@
                         @csrf
                         <div class="mb-4">
                             <label for="nome" class="block text-gray-600 font-bold">Nome do Produto:</label>
-                            <input type="text" name="nome" id="nome" class="form-input mt-1 p-2 border rounded w-full" placeholder="Digite o nome do produto">
+                            <input type="text" name="nome" id="nome" class="form-input mt-1 p-2 border rounded w-full" placeholder="Digite o nome do produto" required>
                         </div>
 
                         <div class="mb-4">
                             <label for="custo" class="block text-gray-600 font-bold">Preço de Custo (Unidade):</label>
-                            <input  name="custo" class="form-input mt-1 p-2 border rounded w-full"  type="text" id="custo" step="0.01" placeholder="Digite o preço de custo em R$"><br>
+                            <input  name="custo" class="form-input mt-1 p-2 border rounded w-full"  type="text" id="custo" step="0.01" placeholder="Digite o preço de custo em R$" required><br>
                         </div>
 
                         <div class="mb-4">
                             <label for="preco" class="block text-gray-600 font-bold">Preço de Venda (Unidade):</label>
-                            <input name="preco" class="form-input mt-1 p-2 border rounded w-full"  type="number" id="preco" step="0.01" placeholder="Digite o preço de venda em R$"><br>
+                            <input name="preco" class="form-input mt-1 p-2 border rounded w-full"  type="number" id="preco" step="0.01" placeholder="Digite o preço de venda em R$" required><br>
                         </div>
                         <div class="mb-4">
                             <label for="quantidade" class="block text-gray-600 font-bold">Quantidade:</label>
-                            <input step="1 "min="1" type="number" name="quantidade" id="quantidade" class="form-input mt-1 p-2 border rounded w-full" placeholder="Digite a quantidade">
+                            <input step="1 "min="1" type="number" name="quantidade" id="quantidade" class="form-input mt-1 p-2 border rounded w-full" placeholder="Digite a quantidade" required>
                         </div>
                         <div class="mb-4">
                             <label for="category_id" class="block text-gray-600 font-bold">Categoria:</label>
-                            <select name="category_id" id="category_id" class="form-select mt-1 p-2 border rounded w-full">
+                            <select name="category_id" id="category_id" class="form-select mt-1 p-2 border rounded w-full" required>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->nome }}</option>
                                 @endforeach
