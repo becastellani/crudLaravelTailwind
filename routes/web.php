@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -43,6 +44,13 @@ Route::middleware(['auth', 'verified', 'can:admin'])->group(function () {
         Route::post('/categorias/salvar', [CategoryController::class, 'store'])->name('category.store');
         Route::get('/categorias/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
         Route::patch('/categorias/{category}', [CategoryController::class, 'update'])->name('categories.update');
+
+
+
+
+        Route::get('/admin/users', [AdminUserController::class, 'index'])->name('panel.index');
+        Route::post('/admin/users/{id}', [AdminUserController::class, 'update'])->name('panel.update');
+
 
     });
 
