@@ -1,15 +1,10 @@
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Cadastro de Produtos') }}
         </h2>
     </x-slot>
-    @if(session()->has('success'))
-    <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
-        {{ session()->get('success') }}
-    </div>
-    @endif
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -39,10 +34,11 @@
                             <label for="category_id" class="block text-gray-600 font-bold">Categoria:</label>
                             <select name="category_id" id="category_id" class="form-select mt-1 p-2 border rounded w-full">
                                 @foreach($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->nome }}</option>
+                                    <option value="{{ $category->id }}" {{ $category->id == $product->category_id ? 'selected' : '' }}>{{ $category->nome }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        
                         
                         <div class="mb-4">
                             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Salvar Produto</button>

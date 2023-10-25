@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     
-
+    @if(session()->has('success'))
+    <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+        {{ session()->get('success') }}
+    </div>
+    @endif
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -56,8 +60,9 @@
                                         {{ $product->quantidade }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        {{ $product->category->nome }}
+                                        {{ $product->category ? $product->category->nome : 'N/A' }}
                                     </td>
+                                    
                                     
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                         @can('admin')

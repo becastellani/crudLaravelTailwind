@@ -1,4 +1,3 @@
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -22,7 +21,7 @@
                             <input type="text" name="nome" id="nome" class="form-input mt-1 p-2 border rounded w-full" placeholder="Digite o nome do produto" value="{{ $category->nome }}">
                         
                         <div class="mb-4">
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Salvar Categoria</button>
+                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5">Salvar Categoria</button>
                         </div>
 
                     </form>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Categoria;
 use Khill\Lavacharts\Lavacharts;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -23,7 +24,18 @@ class ProductController extends Controller
     
         public function store(Request $request)
         {   
-            Product::create($request->all());
+            $validatedData = $request->validate([
+                'nome' => 'required|max:255',
+                'custo' => 'required|numeric',
+                'preco' => 'required|numeric',
+                'quantidade' => 'required|integer|min:1',
+                'category_id' => 'integer', 
+            ]);
+
+
+
+            Product::create($validatedData);
+            
             return redirect()->route('cadastro')->with('success', 'Produto criado com sucesso!');
         }
 
@@ -46,8 +58,8 @@ class ProductController extends Controller
                 'custo' => 'required|numeric',
                 'preco' => 'required|numeric',
                 'quantidade' => 'required|integer|min:1',
+                'category_id' => 'integer', 
             ]);
-
             $product->update($validatedData);
 
             return redirect()->route('visualizar')->with('success', 'Produto atualizado com sucesso.');
